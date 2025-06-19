@@ -1,0 +1,154 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    margin: 0;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#main-form h3 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#error-message {
+    color: red;
+    font-size: 18px;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    height: 1rem;
+    text-align: center;
+}
+
+#auth-message {
+    color: green;
+    font-size: 18px;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    height: 1rem;
+    text-align: center;
+}
+
+.social-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.social-auth button {
+    width: 100%;
+    padding: 0.5rem;
+    color: black;
+    background-color: white;
+    transition: color 0.5s linear;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.social-auth button:hover {
+    color: darkblue;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.input-group input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.input-group input:invalid {
+    animation: invalid-input 1s ease;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 1rem 0;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.confirm-auth {
+    width: 100%;
+    text-align: center;
+}
+
+.confirm-auth button {
+    width: 100%;
+    padding: 0.5rem;
+    color: white;
+    background-color: forestgreen;
+    transition: background 0.5s ease;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.confirm-auth button:hover {
+    background-color: black;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+@keyframes invalid-input {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
