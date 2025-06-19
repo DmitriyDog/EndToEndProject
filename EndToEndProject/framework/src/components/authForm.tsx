@@ -44,6 +44,7 @@ export const AuthForm = () => {
                 <input
                     type="checkbox"
                     id="remember-me-checkbox"
+                    className="form-check-input"
                     checked={remember}
                     onChange={(e) => setRemember(e.target.checked)}
                 />

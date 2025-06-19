@@ -41,6 +41,7 @@ header {
     margin-bottom: 0.5rem;
     height: 1rem;
     text-align: center;
+    min-height: 33px;
 }
 
 #auth-message {

@@ -13,6 +13,7 @@ interface AuthStore {
     setError: (error: string) => void;
     setAuthMessage: (message: string) => void;
     login: () => void;
+    inputPassword: () => void;
 }
 
 export const useAuthStore = create < AuthStore > ((set) => ({
