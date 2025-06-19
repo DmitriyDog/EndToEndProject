@@ -1,4 +1,5 @@
-﻿import { create } from 'zustand';
+﻿import { use } from 'react';
+import { create } from 'zustand';
 
 interface AuthStore {
     email: string;
@@ -28,13 +29,26 @@ export const useAuthStore = create < AuthStore > ((set) => ({
     login: () => {
         const state = useAuthStore.getState();
         if (state.email === 'user@example.com' && state.password === 'Password123!') {
-            set({ authMessage: 'Успешный вход!' });
+            set({
+                authMessage: 'Авторизация выполнена успешно!',
+                error: ''});
             if (state.remember) {
                 sessionStorage.setItem('savedEmail', state.email);
                 sessionStorage.setItem('savedPassword', state.password);
             }
         } else {
-            set({ error: 'Неверный email или пароль' });
+            set({
+                error: 'Неправильно введенные почта или пароль',
+                authMessage: ''});
         }
     },
+    inputPassword: () => {
+        const currentPasswordInput = useAuthStore.getState();
+        const re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if (!re.test(currentPasswordInput.password)) {
+            set({ error: 'Пароль должен содержать минимум 8 символов, включая цифру и спецсимвол' });
+        } else {
+            set({ error: '' });
+        }
+    }
 }));

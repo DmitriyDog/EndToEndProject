@@ -1,4 +1,5 @@
-﻿import { useAuthStore } from '../store/authStore';
+﻿import { ChangeEvent } from 'react';
+import { useAuthStore } from '../store/authStore';
 
 export const AuthForm = () => {
     const {
@@ -8,7 +9,14 @@ export const AuthForm = () => {
         setEmail,
         setPassword,
         setRemember,
+        inputPassword
     } = useAuthStore();
+
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+        inputPassword();
+    }
 
     return (
         <>
@@ -26,7 +34,7 @@ export const AuthForm = () => {
                     type="password"
                     placeholder="Пароль"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                     required
                 />
             </div>
