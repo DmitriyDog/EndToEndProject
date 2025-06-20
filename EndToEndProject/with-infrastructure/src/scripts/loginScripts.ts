@@ -1,5 +1,7 @@
 import { Account } from './account.js';
 
+const test_linter = "double quotes";
+
 // Захардкодил правильные почту и пароль
 export const userAccount: Account = {
     email: 'user@example.com',
