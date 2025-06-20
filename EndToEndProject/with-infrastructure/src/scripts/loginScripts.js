@@ -36,8 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!validatePassword(passwordInput.value)) {
             errorBox.textContent =
                 'Пароль должен содержать минимум 8 символов, включая цифру и спецсимвол';
-        }
-        else {
+        } else {
             errorBox.textContent = '';
         }
     });
@@ -49,17 +48,17 @@ window.addEventListener('DOMContentLoaded', () => {
             errorBox.textContent =
                 'Пароль должен содержать минимум 8 символов, включая цифру и спецсимвол';
             return;
-        }
-        else {
+        } else {
             errorBox.textContent = '';
         }
-        if (isValid &&
+        if (
+            isValid &&
             emailInput.value === CORRECT_EMAIL &&
-            passwordInput.value === CORRECT_PASSWORD) {
+            passwordInput.value === CORRECT_PASSWORD
+        ) {
             authBox.textContent = 'Авторизация выполнена успешно!';
             saveCredentials(emailInput.value, passwordInput.value, rememberCheckbox.checked);
-        }
-        else if (isValid) {
+        } else if (isValid) {
             errorBox.textContent = 'Неправильно введенные почта или пароль';
         }
     });

@@ -1,15 +1,13 @@
-import { Account } from './account';
 import { validatePassword, saveCredentials } from './loginScripts';
-
 
 describe('Auth Module', () => {
     describe('validatePassword()', () => {
-        test('Должен возвращать true для валидного пароля', () => {
+        test('Р”РѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ true РґР»СЏ РІР°Р»РёРґРЅРѕРіРѕ РїР°СЂРѕР»СЏ', () => {
             expect(validatePassword('Password123!')).toBe(true);
             expect(validatePassword('45?jJJ68')).toBe(true);
         });
 
-        test('Должен возвращать false для невалидного пароля', () => {
+        test('Р”РѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ false РґР»СЏ РЅРµРІР°Р»РёРґРЅРѕРіРѕ РїР°СЂРѕР»СЏ', () => {
             expect(validatePassword('short')).toBe(false);
             expect(validatePassword('noSpecial123')).toBe(false);
             expect(validatePassword('NoNumbers!')).toBe(false);
@@ -17,13 +15,13 @@ describe('Auth Module', () => {
     });
 
     describe('saveCredentials()', () => {
-        test('Не должен сохранять введенные данные в sessionStorage при отсутствии галочки в поле "Запомнить меня"', () => {
+        test('РќРµ РґРѕР»Р¶РµРЅ СЃРѕС…СЂР°РЅСЏС‚СЊ РІРІРµРґРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ sessionStorage РїСЂРё РѕС‚СЃСѓС‚СЃС‚РІРёРё РіР°Р»РѕС‡РєРё РІ РїРѕР»Рµ "Р—Р°РїРѕРјРЅРёС‚СЊ РјРµРЅСЏ"', () => {
             saveCredentials('test@example.com', 'Test123!', false);
             expect(sessionStorage.getItem('savedEmail')).toBeNull();
             expect(sessionStorage.getItem('savedPassword')).toBeNull();
         });
 
-        test('Должен сохранять введенные данные в sessionStorage при галочке в поле "Запомнить меня"', () => {
+        test('Р”РѕР»Р¶РµРЅ СЃРѕС…СЂР°РЅСЏС‚СЊ РІРІРµРґРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ sessionStorage РїСЂРё РіР°Р»РѕС‡РєРµ РІ РїРѕР»Рµ "Р—Р°РїРѕРјРЅРёС‚СЊ РјРµРЅСЏ"', () => {
             saveCredentials('test@example.com', 'Test123!', true);
             expect(sessionStorage.getItem('savedEmail')).toBe('test@example.com');
             expect(sessionStorage.getItem('savedPassword')).toBe('Test123!');
