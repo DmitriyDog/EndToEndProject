@@ -7,6 +7,11 @@
 Для нативного с инфраструктурой:
 1. Открыть git bash для папки with-infrastructure
 2. Прописать npm run serve
+npm run test: тесты  
+npm run format: форматтер  
+npm run build: сборка билда  
+npm run lint и lint:fix : линтер  
+
 
 Для проекта с фреймворком:
 1. Открыть git bash для папки framework
